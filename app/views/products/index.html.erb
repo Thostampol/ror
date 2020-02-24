@@ -1,0 +1,39 @@
+<!DOCTYPE html>   
+<html>   
+<body>   
+ <div class="container">   
+    <h3>STOCK LIST</h3>   
+     
+      
+      <br>   
+    <table border="2">   
+      <thead>   
+      <tr>   
+        <th>Name</th>   
+        <th>Price</th>   
+        <th>Description</th>   
+        <th>Actions</th>   
+      </tr>   
+      </thead>   
+      <tbody>   
+      <% @products.each do |product| %>   
+          <tr>   
+            <td><%= product.name %></td>   
+            <td><%= product.price %></td>   
+            <td><%= truncate(product.short_description, :length => 75) %></td>   
+               <div>   
+               <td>
+                    <a href="/products/<%=product.id%>">show</a>
+                    <a href="/products/<%=product.id%>/edit">edit</a>
+                    <a href="/products/<%=product.id%>" data-confirm="Are you sure?" data-method="delete" rel="nofollow">delete</a>  
+                  
+               </td>
+               </div>   
+            </td>   
+          </tr>   
+      <% end %>   
+      </tbody>   
+    </table>   
+    </div>   
+  </body>   
+</html>  
